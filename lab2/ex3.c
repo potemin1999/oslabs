@@ -23,13 +23,27 @@ int print_circle(int d);
 
 
 //   entry point
-int main(){
- int mode = get_mode();
- if ( mode>5 || mode<1 )
+int main(int argsc,char** argsv){
+ int mode = 0;
+ if (argsc>=3){
+   sscanf(*(argsv+2),"%d",&mode);
+ }else{
+   mode = get_mode();
+ }
+ if ( mode>5 || mode<1 ){
+    printf("Drawing mode %d is out of range, exiting",mode);
     return 0;
- int n = get_height();
- if (n<1)
+ }
+ int n = 0;
+ if (argsc<2){
+  n = get_height();
+ }else{
+  sscanf(*(argsv+1),"%d",&n);
+ }
+ if (n<1){
+   printf("Figure height %n is less than 1, exiting",n);
    return 0;
+ }
  int result = 0;
  switch(mode){
   case 1:{
