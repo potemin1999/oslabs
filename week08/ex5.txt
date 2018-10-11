@@ -1,0 +1,3 @@
+Real address points to the place in the real memory, while virtual address points to the place in the virtual memory,
+ and will be mapped to either address in the RAM, when this data is already loaded, or replace some existing data in RAM 
+to the requested one. 

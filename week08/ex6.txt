@@ -1,0 +1,7 @@
+16 bit for virtual address -> address belongs to [0;65535] 
+65536 different addresses
+Page with size 8KB can be mapped to by 8192 addresses
+65536 / 8192 = 8 
+8 pages are required
+8 page entries corresponds to this page in single-level linear table
+
