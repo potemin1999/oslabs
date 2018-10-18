@@ -1,0 +1,7 @@
+1. if you want maximum hit rate, you should load each page you would access at maximum once
+   sort it by number (min or max sort, does not matter) and start accessing
+
+2. minimum hit rate can be achieved, if you will try to access page which was unloaded from 
+   memory in last tick or a little earlier. In other words, you should not have repeatable elements
+   in any subarray with length of ram page capacity. I've tried to implement it with counting sort,
+   but something went wrong :(
