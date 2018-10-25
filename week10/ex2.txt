@@ -1,0 +1,4 @@
+43997 ../lab1/file.txt
+43997 _ex2.txt
+../lab1/file.txt
+../week10/_ex2.txt
