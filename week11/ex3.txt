@@ -1,0 +1,3 @@
+stdin is a line buffered stream by default.
+1. "Hello" in placed in the buffer, memory cloned and then "Hello" flushed in both child and parent
+2. "Hello\n" placed in buffer and flushed, then fork (with already empty stdin buffer) occured and 2 processes flushes empty buffer
