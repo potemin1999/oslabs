@@ -1,0 +1,101 @@
+Copying /bin/bash without O_SYNC. Automated log
+
+-DBUF_SIZE=1
+
+real	0m1.359s
+user	0m0.092s
+sys	0m1.264s
+
+-DBUF_SIZE=5
+
+real	0m0.278s
+user	0m0.016s
+sys	0m0.260s
+
+-DBUF_SIZE=10
+
+real	0m0.147s
+user	0m0.000s
+sys	0m0.144s
+
+-DBUF_SIZE=20
+
+real	0m0.078s
+user	0m0.000s
+sys	0m0.076s
+
+-DBUF_SIZE=40
+
+real	0m0.042s
+user	0m0.004s
+sys	0m0.036s
+
+-DBUF_SIZE=80
+
+real	0m0.023s
+user	0m0.000s
+sys	0m0.020s
+
+-DBUF_SIZE=160
+
+real	0m0.019s
+user	0m0.004s
+sys	0m0.012s
+
+-DBUF_SIZE=320
+
+real	0m0.010s
+user	0m0.000s
+sys	0m0.008s
+
+-DBUF_SIZE=640
+
+real	0m0.008s
+user	0m0.000s
+sys	0m0.004s
+
+
+Copying /bin/bash with O_SYNC.
+
+-DBUF_SIZE=1
+oh my, it was too long
+
+
+-DBUF_SIZE=1000
+
+real	0m1.412s
+user	0m0.000s
+sys	0m0.060s
+
+-DBUF_SIZE=640
+
+real	0m3.341s
+user	0m0.008s
+sys	0m0.088s
+
+-DBUF_SIZE=320
+
+real	0m6.682s
+user	0m0.008s
+sys	0m0.196s
+
+-DBUF_SIZE=160
+
+real	0m11.555s
+user	0m0.008s
+sys	0m0.384s
+
+
+-DBUF_SIZE=80
+
+real	0m18.054s
+user	0m0.012s
+sys	0m0.632s
+
+
+Ok, it will be enough
+As we can see O_SYNC make copying much more longer, and it should not be used usual.
+But I can see at least one usage of this synchronization: IPC
+You write something in file and tells another process, that this data can be read.
+If this process will try to access this file without your O_SYNC flag, it can receive invalid data.
+But it you'll ensure, that "write" call will be released only the data will be stored, it will make this situation impossible to occure.
